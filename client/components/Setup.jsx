@@ -16,7 +16,7 @@ const Setup = () => {
               <hr />
               <a href="https://shadowsocks.org/en/download/clients.html">
                 <button class="btn btn-default btn-lg">
-                  <i class="fa fa-download" aria-hidden="true" /> Download
+                  <i class="fa fa-download  mr-2" aria-hidden="true" /> Download
                 </button>
               </a>
             </div>
@@ -28,7 +28,8 @@ const Setup = () => {
               <hr />
               <a href="https://shadowsocks.org/en/download/clients.html">
                 <button class="btn btn-default btn-lg">
-                  <i class="fa fa-cogs" aria-hidden="true" /> Configuration
+                  <i class="fa fa-cogs  mr-2" aria-hidden="true" />{' '}
+                  Configuration
                 </button>
               </a>
             </div>
@@ -42,13 +43,19 @@ const Setup = () => {
               </h3>
               <hr />
               <a href="[4.1.8]com.github.shadowsocks.apk">
-                <i class="fa fa-android fa-4x" aria-hidden="true" />
+                <i
+                  class="fa fa-android fa-4x m-4 text-success"
+                  aria-hidden="true"
+                />
               </a>
               <a href="Shadowsocks-4.0.7.zip">
-                <i class="fa fa-windows fa-4x" aria-hidden="true" />
+                <i class="fa fa-windows fa-4x m-4" aria-hidden="true" />
               </a>
               <a href="https://shadowsocks.org/en/download/clients.html">
-                <i class="fa fa-mobile fa-4x" aria-hidden="true" />
+                <i
+                  class="fa fa-mobile fa-4x m-4 text-dark"
+                  aria-hidden="true"
+                />
               </a>
             </div>
           </div>

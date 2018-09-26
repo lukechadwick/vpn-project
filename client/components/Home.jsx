@@ -12,7 +12,7 @@ const Home = () => {
             <hr />
             <Link to="/setup">
               <button class="btn btn-default btn-lg">
-                <i class="fa fa-shield" aria-hidden="true" />
+                <i class="fa fa-shield mr-2" aria-hidden="true" />
                 Get Started
               </button>
             </Link>
