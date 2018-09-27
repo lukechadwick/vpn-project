@@ -16,7 +16,6 @@ const Servers = () => {
             <p>Server Port: 445</p>
             <hr />
             <p>Enryption Method: chacha20-ietf-poly1305</p>
-
             <hr />
           </div>
         </div>
@@ -31,7 +30,6 @@ const Servers = () => {
             <p>Server Port: 1080</p>
             <hr />
             <p>Enryption Method: aes-256-gcm</p>
-
             <hr />
           </div>
         </div>

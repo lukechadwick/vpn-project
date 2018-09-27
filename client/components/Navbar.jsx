@@ -43,25 +43,22 @@ class Navbar extends Component {
                 <a class="nav-link">Setup</a>
               </li>
             </Link>
+          </ul>
+          <ul class="navbar-nav ml-auto">
             <Link to="/register">
               <li class="nav-item">
-                <a class="nav-link">Register</a>
+                <a class="nav-link">
+                  <i class="fa fa-user-plus" aria-hidden="true" /> Register
+                </a>
               </li>
             </Link>
-
             <Link to="/login">
-              <li class="nav-item navbar-right">
-                <a class="nav-link">Login</a>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="fa fa-user" aria-hidden="true" /> Login
+                </a>
               </li>
             </Link>
-            {/* <Link to="/db">
-              <button className="btn btn-primary m-1">Database Query</button>
-            </Link>
-            <Link to="/ext">
-              <button className="btn btn-primary m-1">
-                External API Query
-              </button>
-            </Link> */}
           </ul>
         </div>
       </nav>
