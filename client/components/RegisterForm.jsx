@@ -1,6 +1,6 @@
-const request = require('superagent');
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { registerUser, registerError } from '../actions/register';
 
 class RegisterForm extends Component {
@@ -34,6 +34,10 @@ class RegisterForm extends Component {
   }
 
   render() {
+    if (this.props.auth.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="container">
         <div className="jumbotron">
@@ -79,6 +83,12 @@ class RegisterForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     registerUser: creds => {
@@ -91,6 +101,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RegisterForm);

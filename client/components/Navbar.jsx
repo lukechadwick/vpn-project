@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 class Navbar extends Component {
@@ -45,20 +45,40 @@ class Navbar extends Component {
             </Link>
           </ul>
           <ul className="navbar-nav ml-auto">
-            <Link to="/register">
-              <li className="nav-item">
-                <span className="nav-link">
-                  <i className="fa fa-user-plus" aria-hidden="true" /> Register
-                </span>
-              </li>
-            </Link>
-            <Link to="/login">
-              <li className="nav-item">
-                <span className="nav-link">
-                  <i className="fa fa-user" aria-hidden="true" /> Login
-                </span>
-              </li>
-            </Link>
+            {!this.props.isAuthenticated && (
+              <Fragment>
+                <Link to="/register">
+                  <li className="nav-item">
+                    <span className="nav-link">
+                      <i className="fa fa-user-plus" aria-hidden="true" />{' '}
+                      Register
+                    </span>
+                  </li>
+                </Link>
+
+                <Link to="/login">
+                  <li className="nav-item">
+                    <span className="nav-link">
+                      <i className="fa fa-user" aria-hidden="true" /> Login
+                    </span>
+                  </li>
+                </Link>
+              </Fragment>
+            )}
+
+            {this.props.isAuthenticated && (
+              <Link to="/">
+                <li className="nav-item">
+                  <span
+                    className="nav-link"
+                    onClick={() => this.props.logoutUser()}
+                  >
+                    {this.props.userName}:{'  '}
+                    <i className="fa fa-user" aria-hidden="true" /> Logout
+                  </span>
+                </li>
+              </Link>
+            )}
           </ul>
         </div>
       </nav>
