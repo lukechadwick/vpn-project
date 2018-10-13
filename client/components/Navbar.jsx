@@ -8,15 +8,15 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link to="/">
-          <a href="/" class="navbar-brand">
-            <i class="fa fa-code" aria-hidden="true" /> CodeProject
-          </a>
+          <span href="/" className="navbar-brand">
+            <i className="fa fa-code" aria-hidden="true" /> CodeProject
+          </span>
         </Link>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -24,39 +24,39 @@ class Navbar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon" />
+          <span className="navbar-toggler-icon" />
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
             <Link to="/features">
-              <li class="nav-item">
-                <a class="nav-link">Features</a>
+              <li className="nav-item">
+                <span className="nav-link">Features</span>
               </li>
             </Link>
             <Link to="/servers">
-              <li class="nav-item">
-                <a class="nav-link">Servers</a>
+              <li className="nav-item">
+                <span className="nav-link">Servers</span>
               </li>
             </Link>
             <Link to="/setup">
-              <li class="nav-item">
-                <a class="nav-link">Setup</a>
+              <li className="nav-item">
+                <span className="nav-link">Setup</span>
               </li>
             </Link>
           </ul>
-          <ul class="navbar-nav ml-auto">
+          <ul className="navbar-nav ml-auto">
             <Link to="/register">
-              <li class="nav-item">
-                <a class="nav-link">
-                  <i class="fa fa-user-plus" aria-hidden="true" /> Register
-                </a>
+              <li className="nav-item">
+                <span className="nav-link">
+                  <i className="fa fa-user-plus" aria-hidden="true" /> Register
+                </span>
               </li>
             </Link>
             <Link to="/login">
-              <li class="nav-item">
-                <a class="nav-link">
-                  <i class="fa fa-user" aria-hidden="true" /> Login
-                </a>
+              <li className="nav-item">
+                <span className="nav-link">
+                  <i className="fa fa-user" aria-hidden="true" /> Login
+                </span>
               </li>
             </Link>
           </ul>

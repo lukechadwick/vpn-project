@@ -5,7 +5,7 @@ const Servers = () => {
   return (
     <div className="container">
       <div className="jumbotron">
-        <div class="col-lg-6">
+        <div className="col-lg-6">
           <div id="content">
             <h1>Server: Miami</h1>
             <hr />
@@ -19,7 +19,7 @@ const Servers = () => {
             <hr />
           </div>
         </div>
-        <div class="col-lg-6">
+        <div className="col-lg-6">
           <div id="content">
             <h1>Server: L.A</h1>
             <hr />

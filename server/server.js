@@ -22,4 +22,9 @@ server.use('/api/v1/auth', authRoutes);
 
 server.use('/api/ext', require('./routes/external'));
 
+//For every other route server index.html
+server.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+});
+
 module.exports = server;

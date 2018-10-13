@@ -1,103 +1,90 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import InternapAPI from './InternapAPI';
-import ExternalAPI from './ExternalAPI';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-import Logout from './Logout';
 import Navbar from './Navbar';
 import Features from './Features';
 import Home from './Home';
 import Setup from './Setup';
 import Servers from './Servers';
 
-import { isAuthenticated, getUserTokenInfo } from '../utils/auth';
+import { logoutUser } from '../actions/logout';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authenticated: false,
-      loggedInAs: ''
-    };
-    this.logOut = this.logOut.bind(this);
-    this.refreshLoginState = this.refreshLoginState.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      authenticated: isAuthenticated()
-    });
-  }
-
-  logOut() {
-    this.setState({ authenticated: false });
-  }
-
-  refreshLoginState() {
-    this.setState({
-      authenticated: isAuthenticated()
-    });
-  }
-
   render() {
     return (
-      <React.Fragment>
-        <script
-          src="https://code.jquery.com/jquery-3.3.1.min.js"
-          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-          crossorigin="anonymous"
-        />
-        <Navbar />
+      <Router>
+        <React.Fragment>
+          <Navbar />
 
-        <p>{this.state.authenticated ? 'Logged in as: ' : 'Please log in'}</p>
-        <p>{this.state.authenticated && getUserTokenInfo().username}</p>
+          {this.props.auth.isAuthenticated && (
+            <button
+              className="btn btn-primary m-1"
+              onClick={() => this.props.logoutUser()}
+            >
+              Logout
+            </button>
+          )}
 
-        <Route exact path="/" component={Home} />
+          <p>
+            {this.props.auth.isAuthenticated
+              ? 'Logged in as: '
+              : 'Please log in'}
+          </p>
+          <p>
+            {this.props.auth.isAuthenticated && this.props.auth.user.username}
+          </p>
+          <Route exact path="/" component={Home} />
 
-        <Route exact path="/features" component={Features} />
+          <Route exact path="/features" component={Features} />
 
-        <Route exact path="/db" component={InternapAPI} />
-        <Route exact path="/ext" component={ExternalAPI} />
+          <Route exact path="/db" component={InternapAPI} />
 
-        <Route exact path="/setup" component={Setup} />
-        <Route exact path="/servers" component={Servers} />
+          <Route exact path="/setup" component={Setup} />
+          <Route exact path="/servers" component={Servers} />
 
-        {!this.state.authenticated && (
-          <Route
-            exact
-            path="/register"
-            render={() => (
-              <RegisterForm refreshLoginState={this.refreshLoginState} />
-            )}
-          />
-        )}
+          {!this.props.auth.isAuthenticated && (
+            <Route
+              exact
+              path="/register"
+              render={() => (
+                <RegisterForm refreshLoginState={this.refreshLoginState} />
+              )}
+            />
+          )}
 
-        {!this.state.authenticated && (
-          <Route
-            exact
-            path="/login"
-            render={() => (
-              <LoginForm refreshLoginState={this.refreshLoginState} />
-            )}
-          />
-        )}
-      </React.Fragment>
+          {!this.props.auth.isAuthenticated && (
+            <Route
+              exact
+              path="/login"
+              render={() => (
+                <LoginForm refreshLoginState={this.refreshLoginState} />
+              )}
+            />
+          )}
+        </React.Fragment>
+      </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
 
-// {!this.state.authenticated && (
-//   <React.Fragment>
-//     <Link to="/register">
-//       <button className="btn btn-primary m-1">Register</button>
-//     </Link>
-//     <Link to="/login">
-//       <button className="btn btn-primary m-1">Login</button>
-//     </Link>
-//   </React.Fragment>
-// )}
-// {this.state.authenticated && <Logout logOut={this.logOut} />}
+const mapDispatchToProps = dispatch => {
+  return {
+    logoutUser: () => {
+      dispatch(logoutUser());
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
