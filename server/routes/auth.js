@@ -26,8 +26,6 @@ router.get('/login', token.decode, (req, res) => {
 });
 
 function register(req, res, next) {
-  console.log('signIn');
-  console.log(req.body);
   userExists(req.body.username)
     .then(exists => {
       if (exists) {
@@ -41,11 +39,9 @@ function register(req, res, next) {
 }
 
 function login(req, res, next) {
-  console.log('signIn');
-  console.log(req.body);
   getUserByName(req.body.username)
     .then(user => {
-      return user || invalidCredentials(res);
+      return user;
     })
     .then(user => {
       return user && hash.verifyUser(user.hash, req.body.password);
@@ -54,7 +50,7 @@ function login(req, res, next) {
       return isValid ? next() : invalidCredentials(res);
     })
     .catch(err => {
-      console.log(err);
+      res.status(500).send({ message: err.message });
     });
 }
 
