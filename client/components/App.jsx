@@ -28,7 +28,6 @@ class App extends Component {
         <Route exact path="/features" component={Features} />
         <Route exact path="/db" component={InternapAPI} />
         <Route exact path="/setup" component={Setup} />
-        {/* <Route exact path="/servers" component={Servers} /> */}
 
         <Route
           exact
