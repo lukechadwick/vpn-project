@@ -28,7 +28,16 @@ class App extends Component {
         <Route exact path="/features" component={Features} />
         <Route exact path="/db" component={InternapAPI} />
         <Route exact path="/setup" component={Setup} />
-        <Route exact path="/servers" component={Servers} />
+        {/* <Route exact path="/servers" component={Servers} /> */}
+
+        <Route
+          exact
+          path="/servers"
+          render={() => (
+            <Servers isAuthenticated={this.props.auth.isAuthenticated} />
+          )}
+        />
+
         <Route exact path="/register" component={RegisterForm} />
         <Route exact path="/login" component={LoginForm} />
       </Fragment>
