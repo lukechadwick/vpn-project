@@ -10,20 +10,20 @@ import App from './components/App';
 import reducers from './reducers';
 
 const store = createStore(
-  reducers,
-  compose(
-    applyMiddleware(thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
+	reducers,
+	compose(
+		applyMiddleware(thunkMiddleware),
+		window.devToolsExtension ? window.devToolsExtension() : f => f
+	)
 );
 
 render(
-  <Provider store={store}>
-    <Router>
-      <Switch>
-        <App />
-      </Switch>
-    </Router>
-  </Provider>,
-  document.getElementById('app')
+	<Provider store={store}>
+		<Router>
+			<Switch>
+				<App />
+			</Switch>
+		</Router>
+	</Provider>,
+	document.getElementById('app')
 );
