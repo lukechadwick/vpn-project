@@ -11,7 +11,9 @@ class Servers extends Component {
 							<div className="col-sm content">
 								<h1>Server: Miami</h1>
 								<hr />
-								<h3>Server Status: Up</h3>
+								<h3>
+									Server Status: <span style={{ color: 'lime' }}>Up</span>
+								</h3>
 								<hr />
 								{this.props.isAuthenticated ? (
 									<Fragment>
@@ -37,7 +39,9 @@ class Servers extends Component {
 							<div className="col-sm content">
 								<h1>Server: Japan</h1>
 								<hr />
-								<h3>Server Status: Up</h3>
+								<h3>
+									Server Status: <span style={{ color: 'red' }}>Down</span>
+								</h3>
 								<hr />
 								{this.props.isAuthenticated ? (
 									<Fragment>

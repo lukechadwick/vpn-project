@@ -13,27 +13,43 @@ const Setup = () => {
 							device
 						</h3>
 						<hr />
-						<a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks">
-							<img src="playstore.png" width="80px" class="overshadow mr-4" />
+						<a
+							href="https://play.google.com/store/apps/details?id=com.github.shadowsocks"
+							target="blank"
+						>
+							<img
+								src="playstore.png"
+								width="80px"
+								class="overshadow m-3 mr-4"
+							/>
 						</a>
-						<a href="https://github.com/shadowsocks/shadowsocks-windows/releases/download/4.1.2/Shadowsocks-4.1.2.zip">
+						<a
+							href="https://github.com/shadowsocks/shadowsocks-windows/releases/download/4.1.2/Shadowsocks-4.1.2.zip"
+							target="blank"
+						>
 							<img
 								src="windowsstore.png"
 								width="80px"
-								class="overshadow mr-4"
+								class="overshadow m-3 mr-4"
 							/>
 						</a>
-						<a href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911">
-							<img src="applestore.png" width="80px" class="overshadow mr-2" />
+						<a
+							href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911"
+							target="blank"
+						>
+							<img
+								src="applestore.png"
+								width="80px"
+								class="overshadow m-3 mr-4"
+							/>
 						</a>
-
+						<a
+							href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/Installation"
+							target="blank"
+						>
+							<img src="tux.png" width="80px" class="overshadow m-3" />
+						</a>
 						<hr />
-
-						{/* <a href="https://shadowsocks.org/en/download/clients.html">
-							<button class="btn btn-default btn-lg">
-								<i class="fa fa-download  mr-2" aria-hidden="true" /> Download
-							</button>
-						</a> */}
 					</div>
 
 					<div class="col-lg-6 content">
@@ -53,7 +69,10 @@ const Setup = () => {
 						<a href="ss-win-412.zip">
 							<i class="fa fa-windows fa-4x m-4 " aria-hidden="true" />
 						</a>
-						<a href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911">
+						<a
+							href="https://itunes.apple.com/us/app/wingy-http-s-socks5-proxy-utility/id1178584911"
+							target="blank"
+						>
 							<i
 								class="fa fa-apple fa-4x m-4 overshadow"
 								aria-hidden="true"
@@ -66,7 +85,10 @@ const Setup = () => {
 						<h1>Configure Client</h1>
 						<h3>Setup your devices client using the instructions below:</h3>
 						<hr />
-						<a href="https://shadowsocks.org/en/download/clients.html">
+						<a
+							href="https://shadowsocks.org/en/download/clients.html"
+							target="blank"
+						>
 							<button class="btn btn-default btn-lg">
 								<i class="fa fa-cogs  mr-2" aria-hidden="true" /> Configuration
 							</button>
